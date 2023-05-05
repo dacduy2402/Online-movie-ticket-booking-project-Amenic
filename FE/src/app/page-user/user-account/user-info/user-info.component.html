@@ -1,0 +1,45 @@
+<div *ngIf="isLoading" class="loading">
+    <div class="spinner-border text-danger spinner-center" role="status"></div>
+</div>
+<div class="main">
+    <div class="info">
+        <div class="title">
+            <b>THÔNG TIN TÀI KHOẢN</b>
+        </div>
+        <div class="person-info">
+            <div class="row">
+                <div class="col-3 avt">
+                    <img src="{{info.photo}}" alt="">
+
+                </div>
+                <div class="col-9 sub-info">
+                    <table>
+                        <tr>
+                            <th>Họ tên:</th>
+                            <td>{{info.fullname}}</td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>{{info.email}}</td>
+                        </tr>
+                        <tr>
+                            <th>Ngày sinh:</th>
+                            <td>{{info.birthDate | date:'dd/MM/yyyy'}}</td>
+                        </tr>
+                        <tr>
+                            <th>Giới tính:</th>
+                            <td>
+                                <!-- <div *ngIf="info.gender == 1 ? 'Nam' : 'Nữ'"></div> -->
+                                <div *ngIf="info.gender == true ">Nam</div>
+                                <div *ngIf="info.gender == false ">Nữ</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Số điện thoại:</th>
+                            <td>{{info.phone}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

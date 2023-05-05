@@ -1,0 +1,75 @@
+.main {
+    margin: 45px 0px;
+
+
+    .info {
+        padding-left: 40px;
+        padding-top: 2px;
+
+        .created-date {
+            margin-top: 20px;
+            height: 45px;
+            background-color: #e3ddddca;
+            padding-left: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h3 {
+                display: flex;
+                align-items: center;
+            }
+
+            button:hover a{
+                color: green;
+            }
+        }
+
+        .title {
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 51px;
+            font-size: 25px;
+            // padding-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+            .poster {
+                img {
+                    width: 100%;
+                }
+            }
+
+            table {
+                thead {
+
+                    margin-bottom: 10px;
+                }
+
+                tbody {
+                    border-top: 1px dashed #c9c8c5;
+                    padding-top: 10px;
+
+                    td {
+                        height: 30px;
+                        padding-left: 10px;
+
+                        hr {
+                            width: 200px;
+                        }
+                    }
+                }
+            }
+
+            // .barCode{
+            //     display: flex;
+            //     flex-direction: column;
+            //     justify-content: flex-end;
+            // }
+        }
+
+    }
+
+}

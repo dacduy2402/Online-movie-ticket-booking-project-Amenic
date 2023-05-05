@@ -1,0 +1,112 @@
+<div *ngIf="isLoading" class="loading">
+  <div class="spinner-border text-danger spinner-center" role="status"></div>
+</div>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">THÔNG TIN TÀI KHOẢN</h4>
+            <p class="card-category">Cập nhật tài khoản tại đây</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="formGroup">
+              <div class="row">
+                <div class="col-md-12">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Công ty A2M Việt Nam" disabled>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <!-- Poster -->
+                  <ngx-dropzone [multiple]="false" (change)="onSelect($event)">
+                    <ngx-dropzone-label>
+                      <span class="material-symbols-outlined">Tải ảnh lên</span>
+                    </ngx-dropzone-label>
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                      [removable]="true" (removed)="onRemove(f)" [value]="f">
+                    </ngx-dropzone-image-preview>
+                  </ngx-dropzone>
+                  <!-- /Poster -->
+                </div>
+                <div class="col-8">
+                  <div class="col-md-12">
+                    <!-- Tài khoản  -->
+                    <mat-form-field appearance="outline">
+                      <mat-label>Tài khoản</mat-label>
+                      <input type="text" formControlName="username" [readonly]="this.username" matInput>
+                    </mat-form-field>
+                    <!-- /Tài khoản -->
+                  </div>
+                  <div class="col-md-12">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Email</mat-label>
+                      <input type="text" formControlName="email" matInput>
+                      <mat-error class="text-danger" *ngIf="formGroup.get('name')?.hasError('required') &&
+                                                        formGroup.get('name')?.touched">
+                        Email không được để trống
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-md-12">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Họ tên</mat-label>
+                      <input type="text" formControlName="fullname" matInput>
+                      <mat-error class="text-danger" *ngIf="formGroup.get('name')?.hasError('required') &&
+                                              formGroup.get('name')?.touched">
+                        Họ tên không được để trống
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-12">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Ngày sinh</mat-label>
+                      <input matInput [matDatepicker]="birthDate" formControlName="birthDate">
+                      <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
+                      <mat-datepicker #birthDate></mat-datepicker>
+                  </mat-form-field>
+                  </div>
+                  <div class="col-md-12">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Số điện thoại</mat-label>
+                      <input type="text" formControlName="phone" matInput>
+                      <mat-error class="text-danger" *ngIf="formGroup.get('time')?.touched">
+                        Có ký tự không hợp lệ
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="onSubmit()">Cập
+                    nhật</button>
+                </div>
+              </div>
+              
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mt-3">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a href="javascript:void(0)">
+              <img class="img" src="{{info.photo}}" />
+            </a>
+          </div>
+          <div class="card-body">
+            <h6 class="card-category text-gray">Nhân viên Anemic</h6>
+            <h4 class="card-title">{{info.fullname}}</h4>
+            <p class="card-description">
+              Don't be scared of the truth because we need to restart the human foundation in truth And I love you like
+              Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+            </p>
+            <!-- <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
