@@ -5,6 +5,7 @@ import { tap } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 // import { Cookie } from 'ng2-cookies';
 import { HeadersUtil } from 'app/page/util/headers-util';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -28,8 +29,7 @@ export class LoginServiceService {
 
   login(loginRequest: any): Observable<any> {
     // const params: RequestParam[] = ParamUtil.toRequestParams(search);
-    const url = "http://localhost:8080/api/v1/auth/login"
-    return this.http.post<any>(url,loginRequest);
+    return this.http.post<any>(environment.mainUrl + "/auth/login",loginRequest);
   }
 }
 

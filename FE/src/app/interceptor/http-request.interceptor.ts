@@ -1,6 +1,7 @@
 import { HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Cookie2Service } from "app/services/cookie2/cookie2.service";
+import { environment } from "environments/environment";
 import { Observable } from "rxjs";
 
 @Injectable()
@@ -26,7 +27,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
       httpHeader = httpHeader.append('Authorization', 'Bearer ' + userToken)
     }
 
-    if (req.url.includes("http://localhost:8080/api/v1/auth/login")) {
+    if (req.url.includes(environment.mainUrl + "/auth/login")) {
       httpHeader.append('Content-Type', 'application/json')
     }
 

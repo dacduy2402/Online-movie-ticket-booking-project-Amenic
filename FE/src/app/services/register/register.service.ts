@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,7 +13,6 @@ export class RegisterService {
   ) { }
 
   createUser(data: any): Observable<any> {
-    const url = "http://localhost:8080/api/v1/auth"
-    return this.http.post(url+"/createAccount", data);
+    return this.http.post(environment.mainUrl+"/auth/createAccount", data);
   }
 }
